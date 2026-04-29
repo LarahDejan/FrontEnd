@@ -1,0 +1,45 @@
+.form-card {
+    /* This creates the semi-transparent white box */
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    color: #333; /* Dark text on the light box */
+}
+
+.form-card h1 {
+    color: #800000; /* Maroon */
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-field input, .form-field select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
