@@ -31,26 +31,44 @@ const TalentForm = () => {
         padding: '20px'
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        if (!formData.talent) {
-            alert("Please select a talent before submitting.");
-            return;
-        }
+    if (!formData.talent) {
+        alert("Please select a talent before submitting.");
+        return;
+    }
 
-        console.log("Form Data submitted:", formData);
-
-        // Reset form after submission
-        setFormData({
-            name: "",
-            age: "",
-            email: "",
-            talent: "",
+    try {
+        // REPLACE THIS URL with your actual Render URL from image_f10977.png
+        const response = await fetch("https://talent-form-backend.onrender.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
         });
-        
-        alert("Thank you for registering!");
-    };
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log("Success:", result);
+            alert("Form submitted successfully to MongoDB!");
+            
+            // Reset form only after a successful send
+            setFormData({
+                name: "",
+                age: "",
+                email: "",
+                talent: "",
+            });
+        } else {
+            alert("Failed to send data to the server.");
+        }
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("An error occurred. Check the console.");
+    }
+};
 
     return (
      <div style={containerStyle}>
