@@ -41,7 +41,7 @@ const TalentForm = () => {
 
     try {
         // REPLACE THIS URL with your actual Render URL from image_f10977.png
-        const response = await fetch("https://talent-form-backend.onrender.com", {
+        const response = await fetch("https://talent-form-backend.onrender.com/API/submit", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
